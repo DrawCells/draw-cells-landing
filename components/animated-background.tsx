@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import basophil2dGreen from "./cell-patterns/basophil-2d_green.svg";
+import dendriticCell2dYellow from "./cell-patterns/dendritic-cell-2d_yellow.svg";
+import fibroblast2dPurple from "./cell-patterns/fibroblast-2d_purple.svg";
+import microglia2dRed from "./cell-patterns/microglia-2d_red.svg";
+import bCell2dBlue from "./cell-patterns/b-cell-2d_blue.svg";
 
 interface Cell {
   x: number;
@@ -8,7 +13,7 @@ interface Cell {
   vx: number;
   vy: number;
   radius: number;
-  color: string;
+  patternIndex: number;
 }
 
 export function AnimatedBackground() {
@@ -32,17 +37,31 @@ export function AnimatedBackground() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    const colors = [
-      "rgba(16, 185, 129, 0.15)",
-      "rgba(20, 184, 166, 0.15)",
-      "rgba(59, 130, 246, 0.15)",
-      "rgba(168, 85, 247, 0.12)",
-      "rgba(236, 72, 153, 0.12)",
+    // Create SVG patterns for cell fills
+    const patterns: CanvasPattern[] = [];
+    const svgFiles = [
+      basophil2dGreen,
+      dendriticCell2dYellow,
+      fibroblast2dPurple,
+      microglia2dRed,
+      bCell2dBlue,
     ];
+
+    // Convert SVG files to canvas patterns
+    svgFiles.forEach((svgFile) => {
+      const img = new Image();
+      img.onload = () => {
+        const pattern = ctx.createPattern(img, "no-repeat");
+        if (pattern) {
+          patterns.push(pattern);
+        }
+      };
+      img.src = svgFile.src;
+    });
 
     const initCells = () => {
       cellsRef.current = [];
-      const numCells = Math.floor((canvas.width * canvas.height) / 60000);
+      const numCells = Math.floor(canvas.height / 50);
 
       for (let i = 0; i < numCells; i++) {
         cellsRef.current.push({
@@ -51,7 +70,7 @@ export function AnimatedBackground() {
           vx: (Math.random() - 0.5) * 0.3,
           vy: (Math.random() - 0.5) * 0.3,
           radius: Math.random() * 30 + 20,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          patternIndex: Math.floor(Math.random() * svgFiles.length),
         });
       }
     };
@@ -105,17 +124,19 @@ export function AnimatedBackground() {
         if (cell.y < -cell.radius) cell.y = canvas.height + cell.radius;
         if (cell.y > canvas.height + cell.radius) cell.y = -cell.radius;
 
-        ctx.beginPath();
-        ctx.arc(cell.x, cell.y, cell.radius, 0, Math.PI * 2);
-        ctx.fillStyle = cell.color;
-        ctx.fill();
+        // Draw cell with SVG pattern
+        const pattern = patterns[cell.patternIndex];
+        if (pattern) {
+          ctx.save();
+          ctx.translate(cell.x, cell.y);
+          ctx.scale((cell.radius * 2) / 100, (cell.radius * 2) / 100);
+          ctx.translate(-50, -50);
 
-        ctx.beginPath();
-        ctx.arc(cell.x, cell.y, cell.radius * 0.6, 0, Math.PI * 2);
-        ctx.fillStyle = cell.color
-          .replace("0.15", "0.25")
-          .replace("0.12", "0.2");
-        ctx.fill();
+          ctx.fillStyle = pattern;
+          ctx.fillRect(0, 0, 100, 100);
+
+          ctx.restore();
+        }
       });
 
       animationRef.current = requestAnimationFrame(animate);
