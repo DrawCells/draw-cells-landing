@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Microscope,
   Dna,
-  Heart
+  Heart,
 } from "lucide-react";
 import { useState } from "react";
 import { AnimatedBackground } from "@/components/animated-background";
@@ -47,7 +47,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="relative container mx-auto px-6 pt-20 pb-32 overflow-hidden">
+        <section className="relative mx-auto px-6 pt-20 pb-32 overflow-hidden">
           <AnimatedBackground />
           <div className="relative max-w-4xl mx-auto text-center space-y-8 z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
@@ -63,8 +63,9 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Create stunning scientific animations effortlessly. Perfect for students presenting
-              complex concepts with clarity and visual impact.
+              Create stunning scientific animations effortlessly. Perfect for
+              students presenting complex concepts with clarity and visual
+              impact.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -92,7 +93,9 @@ export default function Home() {
                     <Dna className="w-16 h-16" />
                     <Heart className="w-16 h-16" />
                   </div>
-                  <p className="text-slate-500 font-medium">Demo Preview Coming Soon</p>
+                  <p className="text-slate-500 font-medium">
+                    Demo Preview Coming Soon
+                  </p>
                 </div>
               </div>
             </div>
@@ -106,7 +109,8 @@ export default function Home() {
                 Everything You Need to Illustrate Science
               </h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Powerful tools designed specifically for scientific presentations
+                Powerful tools designed specifically for scientific
+                presentations
               </p>
             </div>
 
@@ -120,8 +124,8 @@ export default function Home() {
                     100+ Scientific Sprites
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Cells, organs, animals, and more. Everything you need to visualize
-                    biological and scientific concepts.
+                    Cells, organs, animals, and more. Everything you need to
+                    visualize biological and scientific concepts.
                   </p>
                 </CardContent>
               </Card>
@@ -135,8 +139,8 @@ export default function Home() {
                     Intuitive Animation
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Create complex animations with simple drag-and-drop. No animation
-                    experience required.
+                    Create complex animations with simple drag-and-drop. No
+                    animation experience required.
                   </p>
                 </CardContent>
               </Card>
@@ -165,8 +169,8 @@ export default function Home() {
                     Video Export
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Export your animations as high-quality videos for any platform
-                    or presentation tool.
+                    Export your animations as high-quality videos for any
+                    platform or presentation tool.
                   </p>
                 </CardContent>
               </Card>
@@ -180,7 +184,8 @@ export default function Home() {
                     Easy Sharing
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Share your scientific stories with classmates, teachers, and the world.
+                    Share your scientific stories with classmates, teachers, and
+                    the world.
                   </p>
                 </CardContent>
               </Card>
@@ -194,7 +199,8 @@ export default function Home() {
                     Student-Friendly
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Built specifically for students. Simple interface, powerful results.
+                    Built specifically for students. Simple interface, powerful
+                    results.
                   </p>
                 </CardContent>
               </Card>
@@ -215,8 +221,8 @@ export default function Home() {
                 </h2>
 
                 <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  Join our waitlist and get early access when we launch. Plus, exclusive
-                  resources and updates on new features.
+                  Join our waitlist and get early access when we launch. Plus,
+                  exclusive resources and updates on new features.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto pt-4">
@@ -230,7 +236,8 @@ export default function Home() {
                 </div>
 
                 <p className="text-sm text-slate-500">
-                  No spam, ever. Just updates on our launch and exclusive early access.
+                  No spam, ever. Just updates on our launch and exclusive early
+                  access.
                 </p>
               </div>
             </div>
@@ -244,13 +251,16 @@ export default function Home() {
                 Perfect for Science Students
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Whether you're presenting in class, creating educational content, or explaining
-                complex biological processes, Scillustrate gives you the tools to make your
-                science presentations memorable and impactful.
+                Whether you're presenting in class, creating educational
+                content, or explaining complex biological processes,
+                Scillustrate gives you the tools to make your science
+                presentations memorable and impactful.
               </p>
               <div className="grid md:grid-cols-3 gap-8 pt-12">
                 <div className="space-y-3">
-                  <div className="text-4xl font-bold text-emerald-600">100+</div>
+                  <div className="text-4xl font-bold text-emerald-600">
+                    100+
+                  </div>
                   <div className="text-slate-600">Scientific Sprites</div>
                 </div>
                 <div className="space-y-3">

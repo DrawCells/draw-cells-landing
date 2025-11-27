@@ -42,7 +42,7 @@ export function AnimatedBackground() {
 
     const initCells = () => {
       cellsRef.current = [];
-      const numCells = Math.floor((canvas.width * canvas.height) / 15000);
+      const numCells = Math.floor((canvas.width * canvas.height) / 60000);
 
       for (let i = 0; i < numCells; i++) {
         cellsRef.current.push({
@@ -112,7 +112,9 @@ export function AnimatedBackground() {
 
         ctx.beginPath();
         ctx.arc(cell.x, cell.y, cell.radius * 0.6, 0, Math.PI * 2);
-        ctx.fillStyle = cell.color.replace("0.15", "0.25").replace("0.12", "0.2");
+        ctx.fillStyle = cell.color
+          .replace("0.15", "0.25")
+          .replace("0.12", "0.2");
         ctx.fill();
       });
 
