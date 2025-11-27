@@ -267,7 +267,7 @@ export default function Home() {
 
       <footer className="bg-slate-900 text-white py-12">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
             <div className="flex items-center gap-2">
               <FlaskConical className="w-6 h-6 text-emerald-400" />
               <span className="text-xl font-bold">Scillustrate</span>
@@ -275,13 +275,6 @@ export default function Home() {
             <p className="text-slate-400 text-sm">
               Making science visual, one animation at a time.
             </p>
-            <Button
-              variant="outline"
-              className="border-slate-700 hover:bg-slate-800"
-              onClick={handleNewsletterClick}
-            >
-              Stay Updated
-            </Button>
           </div>
         </div>
       </footer>
