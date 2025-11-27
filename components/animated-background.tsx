@@ -62,16 +62,40 @@ export function AnimatedBackground() {
     const initCells = () => {
       cellsRef.current = [];
       const numCells = Math.floor(canvas.height / 50);
+      const minDistance = 100; // Minimum distance between cell centers
+
+      const isOverlapping = (newCell: Cell, existingCells: Cell[]) => {
+        return existingCells.some((cell) => {
+          const dx = newCell.x - cell.x;
+          const dy = newCell.y - cell.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const minDist = newCell.radius + cell.radius + minDistance;
+          return distance < minDist;
+        });
+      };
 
       for (let i = 0; i < numCells; i++) {
-        cellsRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          radius: Math.random() * 30 + 20,
-          patternIndex: Math.floor(Math.random() * svgFiles.length),
-        });
+        let attempts = 0;
+        let newCell: Cell;
+
+        // Try to find a non-overlapping position
+        do {
+          const radius = Math.random() * 30 + 20;
+          newCell = {
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            radius: radius,
+            patternIndex: Math.floor(Math.random() * svgFiles.length),
+          };
+          attempts++;
+        } while (isOverlapping(newCell, cellsRef.current) && attempts < 50);
+
+        // Only add the cell if we found a good position
+        if (attempts < 50) {
+          cellsRef.current.push(newCell);
+        }
       }
     };
 
