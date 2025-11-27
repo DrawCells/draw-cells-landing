@@ -16,6 +16,7 @@ import {
   Heart
 } from "lucide-react";
 import { useState } from "react";
+import { AnimatedBackground } from "@/components/animated-background";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -46,8 +47,9 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="container mx-auto px-6 pt-20 pb-32">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <section className="relative container mx-auto px-6 pt-20 pb-32 overflow-hidden">
+          <AnimatedBackground />
+          <div className="relative max-w-4xl mx-auto text-center space-y-8 z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
               <Sparkles className="w-4 h-4" />
               100+ Scientific Sprites Available
