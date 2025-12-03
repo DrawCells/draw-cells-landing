@@ -22,7 +22,10 @@ export default function Home() {
   const [email, setEmail] = useState("");
 
   const handleNewsletterClick = () => {
-    window.open("https://forms.google.com/", "_blank");
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSeMHnLyJE6T5CjZm04DxiIIOWjp9uki0VAlUEepNDwLpWSxqg/viewform?usp=header",
+      "_blank"
+    );
   };
 
   return (
@@ -64,7 +67,7 @@ export default function Home() {
 
             <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Create stunning scientific animations effortlessly. Perfect for
-              students presenting complex concepts with clarity and visual
+              scientists presenting complex concepts with clarity and visual
               impact.
             </p>
 
@@ -248,7 +251,7 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-                Perfect for Science Students
+                Perfect for Scientists
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Whether you're presenting in class, creating educational
